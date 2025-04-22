@@ -1,0 +1,11 @@
+customCommands:
+  - key: "X" # Apply the last stash
+    command: "git stash apply"
+    context: "global"
+
+  - key: "Y" # Apply a specific stash by index
+    command: "git stash apply stash@{{index .PromptResponses 0}}"
+    context: "global"
+    prompts:
+      - type: "input"
+        title: "Enter stash index (e.g., 1 for stash@{1})"
